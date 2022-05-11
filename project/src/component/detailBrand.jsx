@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Navbar from "./navbar";
 function Detail() {
     const params = useParams();
@@ -27,14 +28,14 @@ function Detail() {
     return (
         <>
             <Navbar />
-            <div className="row">            {
+            <div className="row justify-content-center ">            {
                 getData.map((item, idx) => (
                     <>
-                        <div className="card d-flex justify-content-center col-md-3 col-sm-6 mb-4 ">
-                            <img src={item.image} class="card-img-top" style={{ height: '20rem' }} alt="..." />
+                        <div className="card d-flex justify-content-center col-md-3 col-sm-12 m-4 ">
+                            <img src={item.image} class="card-img-top" style={{ height: '25rem' }} alt="..." />
                             <div class="card-body text-center">
                                 <p key={idx}>{item.phone_name}</p>
-                                <a href="#" class="btn btn-primary">Detail</a>
+                                <Link to={`/spesi/${item.slug}`} > <a href="#" class="btn btn-primary">Detail</a></Link>
                             </div>
                         </div>
 

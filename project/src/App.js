@@ -4,6 +4,7 @@ import Detail from './component/detailBrand';
 import Home from './component/Home';
 import Populer from './component/populer';
 import Terbaru from './component/terbaru';
+import Spesification from './component/Spesification';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 function App() {
   return (
@@ -16,6 +17,9 @@ function App() {
         <Route path="/terbaru" element={<Terbaru />} />
         <Route path="/detail/">
           <Route path=":id" element={<Detail />} />
+        </Route>
+        <Route path="/spesi/">
+          <Route path=":id" element={<Spesification />} />
         </Route>
       </Routes>
     </BrowserRouter>

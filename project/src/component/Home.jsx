@@ -24,33 +24,34 @@ function Home() {
     return (
         <>
             <Navbar />
-            {
-                getData.map((item, idx) => (
-                    <>
-                        <div className="card d-flex justify-content-center col-md-3 col-sm-12 mb-4 " style={{ width: '18rem;' }}>
-                            <img src="..." class="card-img-top" alt="..." />
-                            <div class="card-body text-center">
-                                <p key={idx}>{item.brand_name}</p>
-                                {/* <a href="#" class="btn btn-primary">Detail</a> */}
-                                <Link to={`/detail/${item.brand_slug}`}>Detail</Link>
+            <div className="row">
+                {
+                    getData.map((item, idx) => (
+                        <>
+                            <div className="card d-flex justify-content-center col-md-3 col-sm-12 mb-4 " style={{ width: '18rem;' }}>
+                                <img src="..." class="card-img-top" alt="..." />
+                                <div className="card-body text-center">
+                                    <p key={idx}>{item.brand_name}</p>
+                                    <Link to={`/detail/${item.brand_slug}`}><a href="#" class="btn btn-primary">Detail</a></Link>
+                                </div>
+
                             </div>
 
-                        </div>
+                        </>
 
-                    </>
-
-                ))
-            }
-            {/* class="card" style="width: 18rem; */}
-            {/* //     <img src="..." class="card-img-top" alt="..." />
+                    ))
+                }
+                {/* class="card" style="width: 18rem; */}
+                {/* //     <img src="..." class="card-img-top" alt="..." />
                     //     <div class="card-body">
                     //         <h5 class="card-title" >{item.brand_name}</h5>
                     //         <a href="#" class="btn btn-primary">Go somewhere</a>
                     //     </div> */}
-            {/* <div className="App">
+                {/* <div className="App">
                 <h3>{getData.brand_name}</h3>
                 <h3>{error}</h3>
             </div> */}
+            </div>
         </>
     );
 }
