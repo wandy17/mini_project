@@ -1,0 +1,55 @@
+.header {
+    width: 100%;
+    height: 100px;
+    background-color: #1e81b0;
+    padding-bottom: 100px;
+    padding-top: 100px;
+    text-align: center;
+    color: aliceblue;
+}
+
+.header h1 {
+    display: inline-block;
+
+    flex: auto;
+
+}
+
+.container {
+    margin: 30px;
+}
+
+
+.input {
+    margin: auto;
+    text-align: center;
+    width: 50%;
+}
+
+.input button {
+    background-color: #1e81b0;
+    color: aliceblue;
+}
+
+.input button:hover {
+    background-color: #063970;
+}
+
+
+
+
+
+
+/* .button {
+    color: aliceblue;
+    background-color: #1e81b0;
+    border-radius: 10px;
+    border: none;
+    padding: 1px 40px;
+    cursor: pointer;
+
+}
+
+.button:hover {
+    background-color: #063970;
+} */

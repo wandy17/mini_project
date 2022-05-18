@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Navbar from "./navbar";
+import Footer from "./footer/Footer";
 function Detail() {
     const params = useParams();
     console.log("params=", params)
@@ -28,14 +29,14 @@ function Detail() {
     return (
         <>
             <Navbar />
-            <div className="row justify-content-center ">            {
+            <div className="row justify-content-center mt-4 ">            {
                 getData.map((item, idx) => (
                     <>
-                        <div className="card d-flex justify-content-center col-md-3 col-sm-12 m-4 ">
-                            <img src={item.image} class="card-img-top" style={{ height: '25rem' }} alt="..." />
-                            <div class="card-body text-center">
-                                <p key={idx}>{item.phone_name}</p>
-                                <Link to={`/spesi/${item.slug}`} > <a href="#" class="btn btn-primary">Detail</a></Link>
+                        <div className="card d-flex justify-content-center col-md-2 col-sm-12 m-4 p-0 ">
+                            <img src={item.image} class="card-img-top mb-2" height={"200px"} alt="..." />
+                            <div className="card-body text-center">
+                                <p key={idx}><b> {item.phone_name}</b></p>
+                                <Link to={`/spesification/${item.slug}`} ><button className="button">Detail</button> </Link>
                             </div>
                         </div>
 
@@ -44,6 +45,7 @@ function Detail() {
                 ))
             }
             </div>
+            <Footer />
 
         </>
     )

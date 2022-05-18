@@ -3,9 +3,16 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "./navbar";
+import gambar from "../gambar.jpg"
+import style from "./Home.module.css"
+import Svg from "./svg";
+import "./Home.css"
+import Footer from "./footer/Footer";
+
 function Home() {
     const [getData, setData] = useState([]);
     const [error, setError] = useState("");
+    const [search, setSearch] = useState('');
     useEffect(() => {
         console.log("fetching data");
         //letak dari kita pasang axios
@@ -21,37 +28,55 @@ function Home() {
                 setError("Data tidak ketemu");
             });
     }, []);
+    const handleChange = (e) => {
+        setSearch(e.target.value)
+    }
+    console.log(search)
     return (
         <>
             <Navbar />
-            <div className="row">
+            <div className={style.header}>
+                <h1> GSMARENA SMARTPHONE</h1>
+                <p>Temukan Smartphone Terbaik Anda</p>
+
+            </div>
+            <Svg />
+
+            {/* <input type="text" className="input-text" placeholder="username" name="name" onChange={handleChange} />
+
+            <Link to={`/cari/${search}`} ><button >Detail</button> </Link> */}
+            <div className={style.container}>
+                <div className={style.input} >
+                    <div class="input-group mb-3">
+                        <input type="text" className="form-control" name="name" placeholder="Search" aria-label="Recipient's username" aria-describedby="button-addon2" onChange={handleChange} />
+                        <Link to={`/cari/${search}`} ><button className="btn btn-outline-secondary" type="button" id="button-addon2">Search</button> </Link>
+                    </div>
+                </div>
+            </div>
+            <div className="row d-flex justify-content-center">
+
                 {
-                    getData.map((item, idx) => (
+                    getData?.map((item, idx) => (
                         <>
-                            <div className="card d-flex justify-content-center col-md-3 col-sm-12 mb-4 " style={{ width: '18rem;' }}>
-                                <img src="..." class="card-img-top" alt="..." />
+                            <div className="card d-flex justify-content-center col-md-2 col-sm-12 m-4 p-0 " style={{ width: '18rem;' }}>
+                                <img src={gambar} className="card-img-top rounded-3" alt="..." />
                                 <div className="card-body text-center">
-                                    <p key={idx}>{item.brand_name}</p>
-                                    <Link to={`/detail/${item.brand_slug}`}><a href="#" class="btn btn-primary">Detail</a></Link>
+                                    <p key={idx}><b>{item.brand_name}</b></p>
+                                    <Link to={`/detail/${item.brand_slug}`}><button className="button">Detail</button></Link>
+
                                 </div>
 
                             </div>
+
 
                         </>
 
                     ))
                 }
-                {/* class="card" style="width: 18rem; */}
-                {/* //     <img src="..." class="card-img-top" alt="..." />
-                    //     <div class="card-body">
-                    //         <h5 class="card-title" >{item.brand_name}</h5>
-                    //         <a href="#" class="btn btn-primary">Go somewhere</a>
-                    //     </div> */}
-                {/* <div className="App">
-                <h3>{getData.brand_name}</h3>
-                <h3>{error}</h3>
-            </div> */}
+
+
             </div>
+            <Footer />
         </>
     );
 }

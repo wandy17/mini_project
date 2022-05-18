@@ -1,0 +1,34 @@
+.card {
+    border: none;
+    box-shadow: 0px 1px 2px 1px;
+    border-radius: 5px;
+
+}
+
+.button {
+    color: aliceblue;
+    background-color: #1e81b0;
+    border-radius: 10px;
+    border: none;
+    padding: 1px 40px;
+    cursor: pointer;
+
+}
+
+.button:hover {
+    background-color: #063970;
+}
+
+.imput {
+    text-align: center;
+}
+
+body {
+    background-color: #e0e5c1;
+}
+
+/* .navbar.container.collaps {
+    float: right !important;
+    margin-left: 50px;
+
+} */

@@ -3,7 +3,10 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
+import Coment from "./Coment";
 import Navbar from "./navbar";
+import style from "./spesification.module.css"
+import Footer from "./footer/Footer";
 function Spesification() {
     const params = useParams();
     console.log("params=", params)
@@ -28,34 +31,76 @@ function Spesification() {
     return (
         <>
             <Navbar />
-            <div className="row">
+            <div className={style.border}>
+                <div className={style.header}>
+                    <div className={style.row}>
+                        <tr>
+                            <div className={style.gambar}>
+                                <td><img src={getData?.phone_images?.[0]} alt="" /></td>
+                            </div>
+                            <div className={style.data} >
+                                <td >
+                                    <h3><b>{getData.phone_name}</b></h3>
+                                    <tr>
+                                        <th style={{ width: "200px" }} ><b>Brand</b></th>
+                                        <td>{getData.brand}</td>
 
-                <div className="card d-flex justify-content-center col-md-3 col-sm-6 mb-4 ">
-                    <img src={getData.thumbnail} className="card-img-top" style={{ height: '20rem' }} alt="..." />
-                    {/* <img src={getData?.phone_images?[0]} className="card-img-top" style={{ height: '20rem' }} alt="..." />
-                    <img src={getData?.phone_images[1]} className="card-img-top" style={{ height: '20rem' }} alt="..." /> */}
-                    <div className="card-body text-center">
-                        <p>{getData.release_date}</p>
-                        <p>{getData.dimension}</p>
-                        <p>{getData.os}</p>
-                        <p>{getData.storage}</p>
-                        {/* <h5>{getData.specifications?.[0].title}</h5>
-                        <p>{getData.specifications?.[0].specs?.[0].key} : {getData?.specifications?.[0].specs?.[0].val?.[0]}</p> */}
+                                    </tr>
+                                    <tr>
+                                        <th style={{ width: "200px" }} ><b>Release</b></th>
+                                        <td>{getData.release_date}</td>
 
+                                    </tr>
+                                    <tr>
+                                        <th style={{ width: "200px" }} ><b>Dimension</b></th>
+                                        <td>{getData.dimension}</td>
+
+                                    </tr>
+                                    <tr>
+                                        <th style={{ width: "200px" }} ><b>OS</b></th>
+                                        <td>{getData.os}</td>
+
+                                    </tr>
+                                    <tr>
+                                        <th style={{ width: "200px" }} ><b>Storage</b></th>
+                                        <td>{getData.storage}</td>
+
+                                    </tr>
+                                    <br />
+                                    <tr>
+                                        <td className={style.img}><img src={getData.thumbnail} alt="" /></td>
+
+                                    </tr>
+
+
+
+                                    {/* <td><b>Dimensin</b>{getData.dimension}</td>
+                                <p><b>Oprasion Sistem </b>{getData.os}</p>
+                                <p><b>Storage</b>{getData.storage}</p> */}
+                                </td>
+                            </div>
+                        </tr>
+
+
+                    </div>
+                    <div className={style.box}>
+                        <h3>Full Spesification {getData.phone_name} </h3>
                         {
                             getData.specifications?.map((item, idx) => (
                                 <>
 
-                                    <h4 key={idx}>{item.title}</h4>
-
-
+                                    <h5 key={idx}>{item.title}</h5>
                                     {
                                         item.specs?.map((i, idx) => (
                                             <>
-
-                                                <h6 key={idx}>{i.key}</h6>
-                                                <h1>{i.val[0]}</h1>
-                                                {console.log(i.val)}
+                                                <ul>
+                                                    <li key={idx}><b>{i.key}</b> : {i.val[0]} </li>
+                                                    {console.log(i)}
+                                                    {console.log(getData)}
+                                                </ul>
+                                                {/* <h6 key={idx}>{i.key}</h6>
+                                            <h1>{i.val[0]}</h1>
+                                            {console.log(i.val)} */}
                                             </>
                                         ))
                                     }
@@ -65,18 +110,13 @@ function Spesification() {
 
                         }
 
-
-
-
                     </div>
                 </div>
 
 
-
-
-
             </div>
-
+            < Coment />
+            <Footer />
         </>
     )
 }
